@@ -39,7 +39,7 @@ body {
     background-color: #2d303a;
     height: 89px;
     padding: 0 2.5em;
-    border-bottom: solid 6px #323746;
+    border-bottom: 6px solid #323746;
 }
 
 .logo {
@@ -48,7 +48,7 @@ body {
     color: #ffffff;
     font-family: "Lato-Regular", sans-serif;
     text-transform: uppercase;
-    letter-spacing: -0.6px;
+    letter-spacing: -0.6px; 
     padding-bottom: 1px;
 }
 
@@ -96,4 +96,55 @@ body {
 
 .nav__link:hover {
     color: #f06c64;
+}
+
+.slider {
+    background-color: #f06c64;
+    height: 594px;
+    padding: 0 40px;
+    border-bottom: solid 6px #ea676b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.arrow {
+    width: 16px;
+    height: 27px;
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+    margin-bottom: 4px;
+}
+
+.left-arrow {
+    background-image: url(./assets/img/arrow.png);
+}
+
+.left-arrow:hover {
+    background-image: url(./assets/img/arrow-hover.png);
+}
+
+.right-arrow {
+    transform: rotate(180deg);
+    background-image: url(./assets/img/arrow.png);
+}
+
+.right-arrow:hover {
+    background-image: url(./assets/img/arrow-hover.png);
+}
+
+.iPhone-vertical {
+    background-image: url("./assets/img/iPhone_Vertical.png");
+    width: 240px;
+    height: 488px;
+    background-repeat: no-repeat;
+    margin-right: 18px;
+}
+
+.iPhone-horizontal {
+    background-image: url("./assets/img/iPhone_Horizontal.png");
+    height: 246px;
+    width: 484px;
+    background-repeat: no-repeat;
 }
