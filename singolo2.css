@@ -126,5 +126,22 @@ body {
   
     cursor: default;
   }
+
+  .portfolio__pictures {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
+    height: 601px;
+    overflow: hidden;
+  }
+  
+  .portfolio__picture {
+    margin-bottom: 20px;
+  }
+  
+  .portfolio__picture:nth-child(n+9) {
+    margin-bottom: 0;
+  }
   
   
