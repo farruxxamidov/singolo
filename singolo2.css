@@ -74,10 +74,51 @@ body {
   button:disabled {
     opacity: 0.7;
     cursor: default;
-  } 
+  }
   
+  .social-icons {
+    margin-top: 24px;
+    padding-left: 1px;
+  }
   
-  .portfolio {
+  .social-icons .icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border: 1px solid var(--text);
+    border-radius: 50%;
+  }
+  
+  .social-icons .icon:not(:first-child) {
+    margin-left: 4px;
+  }
+  
+  .social-icons .icon:hover {
+    opacity: 0.6;
+  }
+  
+  .icon.icon_facebook {
+    background-image: url("assets/img/icon_facebook.svg");
+  }
+  
+  .icon.icon_google-plus {
+    background-image: url("assets/img/icon_google-plus.svg");
+    background-position-x: 7px;
+  }
+  
+  .icon.icon_twitter {
+    background-image: url("assets/img/icon_twitter.svg");
+    background-position-x: 7px;
+  }
+  
+  .icon.icon_linkedin {
+    background-image: url("assets/img/icon_linkedin.svg");
+    background-position-y: 7px;
+  }
+  
+  .portfolio, .about-us {
     padding: 0 40px;
   }
   
@@ -144,4 +185,72 @@ body {
     margin-bottom: 0;
   }
   
+  .about-us {
+    padding-top: 59px;
+    padding-bottom: 67px;
   
+    background-color: var(--light-background);
+    border-bottom: 6px solid #ffffff;
+  }
+  
+  .about-us h2 {
+    letter-spacing: -0.006em;
+  }
+  
+  .layout-3-column {
+    display: flex;
+  
+    margin-top: 45px;
+  }
+  
+  .about-us__employee {
+    width: 300px;
+  }
+  
+  .about-us__employee:nth-child(2) {
+    margin-left: 19px;
+  }
+  
+  .about-us__employee:nth-child(3) {
+    margin-left: 21px;
+  }
+  
+  .about-us__employee h3 {
+    margin-top: 13px;
+  
+    letter-spacing: -0.005em;
+    line-height: 1.2em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .about-us .about-us__employee p {
+    margin-top: 8px;
+  
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 1.75em;
+  }
+  
+  .about-us__employee:nth-child(2) h3 {
+    letter-spacing: -0.01em;
+  }
+  
+  .about-us__employee:nth-child(3) h3,
+  .about-us__employee:nth-child(3) p,
+  .about-us__employee:nth-child(3) .social-icons {
+    margin-left: -1px;
+  }
+  
+  .about-us__employee:nth-child(3) h3 {
+    letter-spacing: 0.005em;
+  }
+  
+  .about-us__employee:nth-child(3) p {
+    letter-spacing: -0.003em;
+  }
+  
+  .about-us__employee:nth-child(2) p {
+    letter-spacing: 0;
+  }
