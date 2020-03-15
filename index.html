@@ -11,15 +11,15 @@
 
 <body>
   <div class="wrapper">
-    <header>
+    <header id="home-section">
       <h1>Singolo</h1>
       <nav>
-        <ul>
-          <li><a class="current">Home</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Portfolio</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
+        <ul id="menu">
+          <li"><a href="#home-section" class="current active">Home</a></li">
+          <li><a href="#services-section">Services</a></li>
+          <li><a href="#portfolio-secion">Portfolio</a></li>
+          <li><a href="#about-section">About</a></li>
+          <li><a href="#contact-section">Contact</a></li>
         </ul>
       </nav>
     </header>
@@ -39,7 +39,7 @@
     
     </section>
 
-    <section class="services">
+    <section class="services" id="services-section">
       <h2>Our Services</h2>
       <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat
         porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris
@@ -84,7 +84,7 @@
       </div>
   </section>
 
-  <section class="portfolio">
+  <section class="portfolio" id="portfolio-secion">
       <h2>Portfolio</h2>
 
       <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
@@ -112,7 +112,7 @@
       </div>
   </section>
 
-  <section class="about-us">
+  <section class="about-us" id="about-section">
     <h2>About Us</h2>
     <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat
       porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris
@@ -160,7 +160,7 @@
     </div>
   </section>
 
-  <section class="contacts">
+  <section class="contacts" id="contact-section">
     <h2>Get a Quote</h2>
     <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat
       porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris
@@ -196,6 +196,7 @@
   </footer>
   </div>
 </div>
+<script src="./script.js"></script>
 </body>
 
 </html>
