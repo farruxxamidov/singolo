@@ -6,6 +6,9 @@ window.onload = function () {
 
     //Tags
     addTagsClickHandler();
+
+    //Pictures
+    addPicturesClickHandler();
 }
 
 //Menu function expressions
@@ -16,6 +19,28 @@ const addMenuClickHandler = () => {
         MENU.querySelectorAll('a').forEach(el => el.classList.remove('active'));
         event.target.classList.add('active');
     })
+}
+
+//Pictures function expressions
+const addPicturesClickHandler = () => {
+    document.querySelector('.layout-4-column').addEventListener('click', (e) => {
+        if (e.target.classList.contains('portfolio__picture')) {
+            let clickedPicture = e.target;
+            removeSelectedPictures();
+            selectClickedPicture(clickedPicture);
+        }
+    })    
+}
+
+const removeSelectedPictures = () => {
+    let pictures = document.querySelectorAll('.layout-4-column .portfolio__picture');
+    pictures.forEach(picture => {
+        picture.classList.remove('picture_selected');
+    })
+}
+
+const selectClickedPicture = (clickedPicture) => {
+    clickedPicture.classList.add('picture_selected');
 }
 
 
@@ -43,17 +68,7 @@ const selectClickedTag = (clickedTag) => {
 }
 
 const changePictureOrder = () => {
+    let picturesParent = document.querySelector('.layout-4-column');
     let pictures = document.querySelectorAll('.layout-4-column .portfolio__picture');
-    // console.log(pictures);
-    // console.log(pictures[0]);
-    // console.log(pictures[1]);
-    // pictures[1]=pictures[0];
-    // console.log(pictures[0]);
-    // console.log(pictures[1]);
-    let picturesArr = Array.from(pictures);
-    picturesArr.shift();
-    console.log(picturesArr);
-    picturesArr.forEach(function (node) {
-        document.getElementsByClassName('layout-4-column')[0].appendChild(node);
-    });
+    picturesParent.appendChild(pictures.item(0));
 }

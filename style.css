@@ -427,6 +427,7 @@ body {
   
   .portfolio__picture {
     margin-bottom: 20px;
+    cursor: pointer;
   }
   
   .portfolio__picture:nth-child(n+9) {
@@ -436,7 +437,10 @@ body {
   .portfolio__picture:nth-child(n+13) {
     display: none;
   }
-  
+
+  .picture_selected {
+    border: 5px solid #F06C64;
+  }  
   
   
   .about-us {
