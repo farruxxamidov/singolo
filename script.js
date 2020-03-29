@@ -1,32 +1,39 @@
 /* MENU */
 
-const menu = document.querySelector("nav ul");
 const menuLinks = document.querySelectorAll("nav ul li a");
-
-menuLinks.forEach( link => link.addEventListener("click", (event) => {
-  menu.querySelectorAll('a').forEach(e => e.classList.remove('current'));
-  event.target.classList.add("current");
-}));
 
 document.addEventListener("scroll", changeMenuActiveLink);
 window.onload = changeMenuActiveLink();
 
 function changeMenuActiveLink(event) {
+  const pageHeight = Math.max(
+    document.body.scrollHeight, document.documentElement.scrollHeight,
+    document.body.offsetHeight, document.documentElement.offsetHeight,
+    document.body.clientHeight, document.documentElement.clientHeight
+  );
+  const clientScreenHeight = document.documentElement.clientHeight;
+  const clientTopPosition = window.pageYOffset;
+  const clientBottomPosition = clientScreenHeight + clientTopPosition;
+
   const currentPositionY = window.scrollY;
   const tagsWithId = document.querySelectorAll('[id]');
 
-  tagsWithId.forEach( tag => {
-    if (tag.offsetTop - 89 <= currentPositionY &&
-       (tag.offsetTop + tag.offsetHeight - 89) > currentPositionY) {
-      menuLinks.forEach( link => {
+  tagsWithId.forEach(tag => {
+    if (tag.offsetTop - 90 <= currentPositionY &&
+      (tag.offsetTop + tag.offsetHeight - 90) > currentPositionY) {
+      menuLinks.forEach(link => {
         link.classList.remove("current");
-        if(tag.getAttribute("id") === link.getAttribute("href").substring(1)) {
-          link.classList.add("current");
+        if (clientBottomPosition + 10 >= pageHeight) {
+          menuLinks[menuLinks.length - 1].classList.add("current");
+        } else {
+          if (tag.getAttribute("id") === link.getAttribute("href").substring(1)) {
+            link.classList.add("current");
+          }
         }
       });
     }
   });
-  
+
 }
 
 
@@ -76,8 +83,8 @@ function initSlider(currentSlide) {
 // Phone screens switching off / on
 function phoneScreensActivate() {
   const phones = document.querySelectorAll(".slider .iphone");
-  phones.forEach( phone => phone.querySelectorAll(".iphone__clickable").forEach( 
-    element => element.addEventListener( "click", event => {
+  phones.forEach(phone => phone.querySelectorAll(".iphone__clickable").forEach(
+    element => element.addEventListener("click", event => {
       let screen = phone.querySelector(".iphone__screen");
       (screen.classList.contains("hidden")) ?
         screen.classList.remove("hidden") :
@@ -91,30 +98,30 @@ let slidesList = slidesContainer.querySelectorAll(".slide");
 
 function hideSlide(direction) {
   slidesList[currentSlide].classList.add(direction);
-  slidesList[currentSlide].addEventListener("animationend", function(){
+  slidesList[currentSlide].addEventListener("animationend", function () {
     this.classList.remove("active", direction);
   });
 }
 
 function showSlide(direction) {
   slidesList[currentSlide].classList.add("next", direction);
-  slidesList[currentSlide].addEventListener("animationend", function(){
+  slidesList[currentSlide].addEventListener("animationend", function () {
     this.classList.remove("next", direction);
     this.classList.add("active");
   });
 }
 
-function changeSlideBackground(){
+function changeSlideBackground() {
   sliderBackground.classList.value = "slider";
-  if(slideColor.hasOwnProperty(currentSlide)) {
+  if (slideColor.hasOwnProperty(currentSlide)) {
     sliderBackground.classList.add(slideColor[currentSlide]);
   } else {
-    sliderBackground.classList.add( slideColor["default"] );
+    sliderBackground.classList.add(slideColor["default"]);
   }
 }
 
-arrow.forEach( each => each.addEventListener("click", event => {
-  if ( event.target.classList.contains("right") ) {
+arrow.forEach(each => each.addEventListener("click", event => {
+  if (event.target.classList.contains("left")) {
     hideSlide("to-right");
     currentSlide = (--currentSlide + slidesNumber) % slidesNumber;
     changeSlideBackground();
@@ -137,10 +144,10 @@ const portfolio = document.querySelector(".portfolio__pictures");
 // Shift portfolio pictures by clicking on tag
 tags.forEach(tag => tag.addEventListener("click", (event) => {
   // Prevent selected tag from click action
-  if( !event.target.classList.contains("selected") ) {
+  if (!event.target.classList.contains("selected")) {
     let portfolioPictures = [...portfolio.querySelectorAll(".portfolio__picture")];
     portfolioPictures.unshift(portfolioPictures.pop());
-    portfolioPictures.forEach( pic => portfolio.append(pic) );
+    portfolioPictures.forEach(pic => portfolio.append(pic));
   }
   tags.forEach(t => t.classList.remove('selected'));
   event.target.classList.add("selected");
@@ -150,12 +157,12 @@ tags.forEach(tag => tag.addEventListener("click", (event) => {
 let switchNow = true;
 const portfolioPic = portfolio.querySelectorAll(".portfolio__picture");
 portfolioPic.forEach(image => image.addEventListener("click", (event) => {
-  if ( event.target.classList.contains("bordered") ) {
+  if (event.target.classList.contains("bordered")) {
     switchNow = false;
   }
 
   portfolio.querySelectorAll("img").forEach(pic => pic.classList.remove("bordered"));
-  
+
   if (switchNow) {
     event.target.classList.add("bordered");
   }
@@ -173,7 +180,7 @@ const modalBackground = document.querySelector(".modal__background");
 const modalMessage = document.querySelector(".modal__message");
 
 //Add Close button to modal window
-function addCloseButton(node){
+function addCloseButton(node) {
   node.innerHTML += "<button class='modal__close-button' type='button'>OK</button>";
   const modalCloseButton = document.querySelector(".modal__close-button");
   modalCloseButton.addEventListener("click", hideModal);
@@ -181,19 +188,19 @@ function addCloseButton(node){
 }
 
 //Get value from form field
-function addNodeValue (node, defaultValue = "Не заполнено") {
+function addNodeValue(node, defaultValue = "Не заполнено") {
   let value = document.querySelector(node).value;
   value = (value == "") ? defaultValue : value;
   return value;
 }
 
 //Show modal window
-function showModal () {
+function showModal() {
   modal.classList.remove("hidden");
 }
 
 //Hide modal window
-function hideModal () {
+function hideModal() {
   modal.classList.add("hidden");
   document.forms[0].reset();
 }
@@ -204,7 +211,7 @@ button.addEventListener("click", (event) => {
   let isValid = node => node.checkValidity();
 
   //Check if all required fields filled with valid data
-  if ( requiredFields.every(isValid) ) {
+  if (requiredFields.every(isValid)) {
     event.preventDefault();
 
     modalMessage.innerHTML = "";
